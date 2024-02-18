@@ -1,0 +1,117 @@
+<a href="/alm/category/?almBrandId=ctnow&node=4859496031&ref=fs_dsk_sn_fruitsVegetables" class="nav-a"
+    aria-label="Fruits & Vegetables" >
+    <span class="nav-a-content">
+      Fruits & Vegetables
+      
+    </span>
+  </a>
+  <a href="/alm/category/?almBrandId=ctnow&node=4859482031&ref=fs_dsk_sn_riceattadal" class="nav-a"
+    aria-label="Rice, Atta & Dal" >
+    <span class="nav-a-content">
+      Rice, Atta & Dal
+      
+    </span>
+  </a>
+  <a href="/alm/category/?almBrandId=ctnow&node=4859491031&ref=fs_dsk_sn_oilmasala" class="nav-a"
+    aria-label=" 	
+Oil, Masala & Sauces" >
+    <span class="nav-a-content">
+       	
+Oil, Masala & Sauces
+      
+    </span>
+  </a>
+  <a href="/alm/category/?almBrandId=ctnow&node=4859477031&ref=fs_dsk_sn_breakfatpackg" class="nav-a"
+    aria-label="Breakfast Food" >
+    <span class="nav-a-content">
+      Breakfast Food
+      
+    </span>
+  </a>
+  <a href="/alm/category/?almBrandId=ctnow&node=4859490031&ref=fs_dsk_sn_meatseafoodIN" class="nav-a"
+    aria-label="Eggs, Meat & Fish " >
+    <span class="nav-a-content">
+      Eggs, Meat & Fish 
+      
+    </span>
+  </a>
+  <a href="/alm/category/?almBrandId=ctnow&node=1374489031&ref=fs_dsk_sn_healthsupplement" class="nav-a"
+    aria-label="Health & Nutrition" >
+    <span class="nav-a-content">
+      Health & Nutrition
+      
+    </span>
+  </a>
+  <a href="/alm/category/?almBrandId=ctnow&node=1374515031&ref=fs_dsk_sn_cleaningHouse" class="nav-a"
+    aria-label="Cleaning & Household" >
+    <span class="nav-a-content">
+      Cleaning & Household
+      
+    </span>
+  </a>
+  <a href="/alm/category/?almBrandId=ctnow&node=1350385031&ref=fs_dsk_sn_hygienepersonal" class="nav-a"
+    aria-label="Hygiene & Personal Care" >
+    <span class="nav-a-content">
+      Hygiene & Personal Care
+      
+    </span>
+  </a>
+  <a href="/alm/category/?almBrandId=ctnow&node=1374276031&ref=fs_dsk_sn_bathbody" class="nav-a"
+    aria-label="Bath & Body " >
+    <span class="nav-a-content">
+      Bath & Body 
+      
+    </span>
+  </a>
+  <a href="/alm/category/?almBrandId=ctnow&node=1571275031&ref=fs_dsk_sn_babycare" class="nav-a"
+    aria-label="Baby Care " >
+    <span class="nav-a-content">
+      Baby Care 
+      
+    </span>
+  </a>
+<!-- nav-linktree-subnav - 'nowstore' -->
+</div>
+
+///next
+insert.html
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert</title>
+</head>
+<body>
+    <form>
+        Book id <input type="number" name="bid" id="bid"><br><br>
+        mango <input type="checkbox" name ="mango" id = "mango" value = "mango"><br><br>
+        Submit <input type="submit" value="submit">
+    </form>
+    <p id="res"></p>
+    
+</body>
+
+<script>
+    const bid = document.getElementById('bid');
+    const mango = document.getElementById('mango');
+    insert.addEventListener('click',()=>{
+        var data = {
+            bid: parseInt(bid.value),
+            mango : mango.value,
+        }
+        fetch('http://localhost:9000/api/books',{
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json; chatset=UTF-8'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => {return res.json()})
+        .then(res => {result.innerText = JSON.stringify(res)});
+
+    })
+</script>
+</html>

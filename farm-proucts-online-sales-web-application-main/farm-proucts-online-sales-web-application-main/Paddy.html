@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        h1,h2{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: aqua;
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        form input[type="text"],
+        form input[type="tel"],
+        form input[type="number"] {
+
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            background-color: aqua;
+            border-radius: 15px;
+        }
+
+        form input[type="button"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        a {
+            color: azure;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h1>DGH SERVICE</h1>
+        <h2>Papaya</h2>
+        <label for="username">Name:</label>
+        <input type="text" id="bid" name="username" required>
+        <label for="email">Phone:</label>
+        <input type="tel" id="bname" name="email" required>
+        <label for="password">Quantity (per Kg):</label>
+        <input type="number" id="pname" name="password" required><br>
+        <input type="checkbox" id = "products" name="name" value="Paddy" required>Confirm to Buy Paddy<br>
+        <input type="button" name="insert" value="Order" id="insert"><br><br>
+        <a href="D:\wt mini project\home_page.html">BACK</a>
+    </form>
+
+    <script>
+        const bid = document.getElementById('bid');
+        const bname = document.getElementById('bname');
+        const pname = document.getElementById('pname');
+        const product = document.getElementById('products');
+
+        const insert = document.getElementById('insert');
+        const result = document.getElementById('res')
+
+        insert.addEventListener('click', () => {
+            alert("Order placed!");
+            var data = {
+                email: bid.value,
+                password: bname.value,
+                cpassword: pname.value,
+                product: product.value,
+            }
+            fetch('http://localhost:9000/api/books', {
+                method: "POST",
+                headers: {
+                    'Content-type': 'application/json; chatset=UTF-8'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(res => res.json())
+            .then(res => result.innerText = JSON.stringify(res));
+        });
+    </script>
+</body>
+</html>

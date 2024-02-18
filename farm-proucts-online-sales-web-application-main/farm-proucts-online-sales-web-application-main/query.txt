@@ -1,0 +1,6 @@
+db.login.insertMany([{email:'dharunrajasr.21aim@kongu.edu',password:'2412'},
+{email:'john.21aim@kongu.edu',password:'36413'},
+{email:'dhevsd.21aim@kongu.edu',password:'999444'},
+{email:'dhruvr.21aim@kongu.edu',password:'hellomc123'},
+{email:'kishantr.21aim@kongu.edu',password:'welcomehomie362'},
+])
